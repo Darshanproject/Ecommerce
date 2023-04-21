@@ -1,3 +1,12 @@
 const appname = "eMart";
 const appversion = "Version 1.0.0";
 const credits = "@Gada Darshan";
+const email = "Email";
+const emailHint = "Admin@admin.dart";
+const password = "Password";
+const passwordHint = "********";
+const forgetpassword = "ForgetPassword?";
+const login = "Login";
+const signup = "signup";
+const createnewaccount = "Create New Accout";
+const loginwith = "Log in With";
