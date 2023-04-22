@@ -17,7 +17,16 @@ const nameHint = "Gada Darshan";
 const privacyPolicy = "PrivacyPolicy";
 const termANDcond = "Terms And Condition";
 const alreadyhaveaccount = "Already Have An Account ? ";
+//home  .dart
 const home = "Home",
     categories = "Categroies",
     cart = "Cart",
     account = "Account";
+//home screen .dart
+const searchanything = "Search anything ....",
+    todaysdeal = "Today's deal",
+    flashsales = "Flash Sale",
+    topsellers = "Top Sellers",
+    brand = "Brand",
+    topCategories = "Top Categories",
+    feturedCategories = "FeaturedCategories";
