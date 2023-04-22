@@ -2,6 +2,7 @@ import 'package:emart_app/consts/consts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get.dart';
 
 import '../../WidgetsCommon/applogo_widget.dart';
 import '../../WidgetsCommon/bg_widget.dart';
@@ -9,8 +10,15 @@ import '../../WidgetsCommon/custom_textfiel.dart';
 import '../../WidgetsCommon/our_button.dart';
 import '../../consts/lists.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  bool? isCheck = false;
 
   @override
   Widget build(BuildContext context) {
@@ -36,24 +44,18 @@ class SignupScreen extends StatelessWidget {
                 child: TextButton(
                     onPressed: () {}, child: forgetpassword.text.make()),
               ),
-              5.heightBox,
-              //ourbuttom().box.width(context.screenWidth - 50).make(),
-              ourbuttom(
-                      color: redColor,
-                      title: login,
-                      textcolor: whiteColor,
-                      onPress: () {})
-                  .box
-                  .white
-                  .width(context.screenWidth - 50)
-                  .make(),
+
               Row(
                 children: [
                   Checkbox(
                       checkColor: redColor,
-                      value: false,
-                      onChanged: (newValue) {}),
-                  10.widthBox,
+                      value: isCheck,
+                      onChanged: (newValue) {
+                        setState(() {
+                          isCheck = newValue;
+                        });
+                      }),
+                  5.widthBox,
                   // ignore: prefer_const_constructors
                   Expanded(
                     child: RichText(
@@ -61,32 +63,43 @@ class SignupScreen extends StatelessWidget {
                       TextSpan(
                         text: "I agree to ",
                         style: TextStyle(
-                          fontFamily: bold,
+                          fontFamily: regular,
                           color: fontGrey,
                         ),
                       ),
                       TextSpan(
                           text: termANDcond,
                           style: TextStyle(
-                            fontFamily: bold,
+                            fontFamily: regular,
                             color: redColor,
                           )),
                       TextSpan(
                           text: "&",
                           style: TextStyle(
-                            fontFamily: bold,
+                            fontFamily: regular,
                             color: fontGrey,
                           )),
                       TextSpan(
                           text: privacyPolicy,
                           style: TextStyle(
-                            fontFamily: bold,
+                            fontFamily: regular,
                             color: redColor,
                           )),
                     ])),
                   )
                 ],
-              )
+              ),
+              5.heightBox,
+              //ourbuttom().box.width(context.screenWidth - 50).make(),
+              ourbuttom(
+                      color: redColor,
+                      title: signup,
+                      textcolor: whiteColor,
+                      onPress: () {})
+                  .box
+                  .white
+                  .width(context.screenWidth - 50)
+                  .make(),
             ],
           )
               .box
@@ -95,7 +108,22 @@ class SignupScreen extends StatelessWidget {
               .shadowSm
               .padding(EdgeInsets.all(16))
               .width(context.screenWidth - 70)
-              .make()
+              .make(),
+          10.heightBox,
+          // we will reap this widget with gesturewidget
+          RichText(
+              text: TextSpan(
+            children: [
+              TextSpan(
+                  text: alreadyhaveaccount,
+                  style: TextStyle(fontFamily: bold, color: fontGrey)),
+              TextSpan(
+                  text: login,
+                  style: TextStyle(fontFamily: bold, color: redColor))
+            ],
+          )).onTap(() {
+            Get.back();
+          })
         ],
       )),
     ));
