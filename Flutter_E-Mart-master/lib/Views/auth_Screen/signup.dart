@@ -92,7 +92,7 @@ class _SignupScreenState extends State<SignupScreen> {
               5.heightBox,
               //ourbuttom().box.width(context.screenWidth - 50).make(),
               ourbuttom(
-                      color: redColor,
+                      color: isCheck == true ? redColor : lightGrey,
                       title: signup,
                       textcolor: whiteColor,
                       onPress: () {})

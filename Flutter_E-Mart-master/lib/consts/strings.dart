@@ -17,3 +17,7 @@ const nameHint = "Gada Darshan";
 const privacyPolicy = "PrivacyPolicy";
 const termANDcond = "Terms And Condition";
 const alreadyhaveaccount = "Already Have An Account ? ";
+const home = "Home",
+    categories = "Categroies",
+    cart = "Cart",
+    account = "Account";
