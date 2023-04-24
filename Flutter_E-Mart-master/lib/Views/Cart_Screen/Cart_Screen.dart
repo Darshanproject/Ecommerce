@@ -14,6 +14,18 @@ class CartScreen extends StatelessWidget {
       appBar: AppBar(
         title: categories.text.white.fontFamily(bold).make(),
       ),
+      body: Container(
+        child: GridView.builder(
+            shrinkWrap: true,
+            itemCount: 9,
+            gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+            itemBuilder: (context, index) {
+              return Container(
+                color: Colors.yellow,
+              );
+            }),
+      ),
     ));
   }
 }
