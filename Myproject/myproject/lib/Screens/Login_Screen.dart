@@ -3,6 +3,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 
+import 'Home_Page.dart';
+
 class Login_Page extends StatefulWidget {
   //  const Login_Page({super.key});
 
@@ -52,16 +54,6 @@ class _Login_PageState extends State<Login_Page> {
                           prefixIcon: Icon(Icons.email_rounded)),
                       controller: email,
                     ),
-                    FlutterPwValidator(
-                        controller: password,
-                        minLength: 6,
-                        uppercaseCharCount: 2,
-                        numericCharCount: 3,
-                        specialCharCount: 1,
-                        width: 400,
-                        height: 150,
-                        onSuccess: yourCallbackFunction,
-                        onFail: yourCallbackFunction),
                     SizedBox(
                       height: 50,
                     ),
@@ -81,11 +73,28 @@ class _Login_PageState extends State<Login_Page> {
                       obscureText: true,
                       controller: password,
                     ),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    FlutterPwValidator(
+                        controller: password,
+                        minLength: 6,
+                        uppercaseCharCount: 2,
+                        numericCharCount: 3,
+                        specialCharCount: 1,
+                        width: 400,
+                        height: 150,
+                        onSuccess: yourCallbackFunction,
+                        onFail: yourCallbackFunction),
                     Padding(
                       padding: EdgeInsets.all(5),
                       child: ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Home_Page()));
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(const SnackBar(
                               content: Text("Processing Data "),
@@ -100,10 +109,4 @@ class _Login_PageState extends State<Login_Page> {
               ))),
     );
   }
-//   @override
-//   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-//     super.debugFillProperties(properties);
-//     properties.add(DiagnosticsProperty('implements', implements));
-//   }
-// }
 }
